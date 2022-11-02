@@ -3,12 +3,14 @@ class Solution {
         
         List<Integer>[] e = new List[n];
         
-        for(int i = 0; i < n; i++)
+        for(int i = 0; i < n; i++) {
             e[i] = new ArrayList<>();
+        }
         
-        for(int i = 0; i <n; i++) {
-            if(manager[i] != -1)
+        for(int i = 0; i < n; i++) {
+            if(manager[i] != -1) {
                 e[manager[i]].add(i);
+            }
         }
         
         return dfs(e, headID, informTime);
@@ -18,7 +20,7 @@ class Solution {
         
         int res = 0;
         
-        for(int c: e[curr]) {
+        for(int c : e[curr]) {
             res = Math.max(res, dfs(e, c, informTime));
         }
         
